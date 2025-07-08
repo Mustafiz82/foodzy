@@ -20,7 +20,8 @@ const Product = ({ item }) => {
             emptySymbol={<IoStarOutline className="text-primary" />}
             fullSymbol={<IoIosStar className="text-primary" />}
             readonly
-            initialRating={4}
+            initialRating
+            ={4}
           />
           <span className="text-black/70">({item.rating})</span>
         </div>
