@@ -12,7 +12,7 @@ const TopNav = () => {
   ];
 
   return (
-    <div className="flex justify-between items-center container mx-auto py-4 px-5">
+    <div className="flex justify-between items-center container px-10 mx-auto py-4 px-5">
       <ul className="flex gap-5">
         {route.map((item, index) => (
           <NavLink

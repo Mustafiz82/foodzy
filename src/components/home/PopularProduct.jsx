@@ -3,19 +3,19 @@ import { FaArrowRight } from "react-icons/fa";
 import prouductBannerImage from "../../assets/home/product-banner-img.png";
 import { ProductData } from "../../Data/PopularProductData";
 import Product from "../Shared/Product";
+import Title from "../Shared/Title";
 
 const PopularProduct = () => {
   const category = ["All", "Snack", "Vegetable", "Fruit", "Bakery"];
 
   return (
-    <div className="container mx-auto">
-      <div className="text-center">
-        <h1 className="text-4xl  font-bold ">Popular Products</h1>
-        <p className="max-w-lg mx-auto mt-4  text-black/80 ">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore lacus vel facilisis.
-        </p>
-      </div>
+    <div className="container px-10 mx-auto">
+      <Title
+        title={"Popular Products"}
+        subTitle={
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore lacus vel facilisis."
+        }
+      />
 
       <div className="grid mt-10 grid-cols-4 gap-5">
         <div className="space-y-2 text-center">
@@ -27,8 +27,12 @@ const PopularProduct = () => {
               </p>
             </div>
           ))}
-          <div className="relative">
-            <img src={prouductBannerImage} alt="" />
+          <div className="relative  h-[950px] w-full">
+            <img
+              src={prouductBannerImage}
+              className="w-full object-cover h-full"
+              alt=""
+            />
             <div className="absolute space-y-2 text-left top-24 text-white left-10">
               <p className="text-3xl text-white/90">Juicy</p>
               <h2 className="text-5xl font-semibold text-[#F7E8AA]">Fruits</h2>
@@ -37,7 +41,7 @@ const PopularProduct = () => {
             </div>
           </div>
         </div>
-        <div className="">
+        <div className="grid grid-cols-3 col-span-3 gap-5">
           {ProductData.map((item, idx) => (
             <Product key={idx} item={item} />
           ))}

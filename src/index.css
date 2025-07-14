@@ -6,7 +6,7 @@
 
 @theme{
   --color-primary : #F53E32;
-  --font-poppins : "Poppins" , "sans-serif";
+  --font-poppins : "poppins" , "sans-serif";
   --font-libre : "Libre Franklin", sans-serif;
   --font-noto :"Noto Sans", sans-serif;
 }
