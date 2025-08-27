@@ -2,13 +2,20 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import Header from '../components/Shared/Header';
 import Footer from '../components/Shared/Footer';
+import PageName from '../components/Shared/PageName';
+import MobileHeader from '../components/Shared/MobileHeader';
+import MobileBottomNav from '../components/Shared/MobileBottomNav';
 
 const MainLayout = () => {
     return (
         <div>
-            <Header/>
+            <div className='hidden lg:block'><Header/></div>
+            <MobileHeader/>
+            <PageName/>
             <Outlet/>
             <Footer/>
+            <MobileBottomNav/>
+
         </div>
     );
 };

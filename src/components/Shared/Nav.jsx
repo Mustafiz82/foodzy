@@ -30,7 +30,7 @@ const Nav = () => {
   console.log(isDropDownOpen)
 
   return (
-    <div className="container px-10 flex  items-center justify-between mx-auto">
+    <div className="container px-5 flex  items-center justify-between mx-auto">
       <div className="flex  items-center">
         <img src={logo} className="" />
         <div>

@@ -8,12 +8,12 @@ const Banner = () => {
   return (
     <div
       style={{ backgroundImage: `url('${bgImg}')` }}
-      className=" flex items-center justify-between p-16 bg-center bg-cover"
+      className=" flex relative w-full overflow-hidden items-center justify-between px-5 py-10 md:py-20 lg:p-16 bg-center bg-cover"
     >
-      <div className="relative">
-        <div className="text-white space-y-2 mx-10 max-w-[400px]">
+      <div className="relative  w-full">
+        <div className="text-white space-y-2 mr-5  md:mx-10 max-w-[400px]">
           <h3 className="text-white/70">Super Delicious</h3>
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold">
             The best way to stuff your wallet.
           </h1>
           <h3 className="text-white/70">Todays Best Deal</h3>
@@ -25,13 +25,13 @@ const Banner = () => {
           </button>
         </div>
 
-        <div className="absolute -right-40 -bottom-10">
-          <img src={discount} className="w-[70%]" alt="" />
+        <div className="absolute flex justify-end right-0 lg:-right-40 -bottom-2 lg:-bottom-10">
+          <img src={discount} className="w-[50%]  lg:w-[70%]" alt="" />
         </div>
       </div>
 
       <div>
-        <img src={bannerImage} className="h-[500px] w-auto" alt="" />
+        <img src={bannerImage} className=" w-[55%] absolute lg:static -right-8 top-10  lg:h-[500px] lg:min-w-[700px]" alt="" />
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import food3 from "../../assets/home/food3.png";
 
 const Food = () => {
   return (
-    <div className="my-20 container px-10  mx-auto gap-5  grid grid-cols-4 ">
+    <div className="my-20 text-white lg:text-black container px-10  mx-auto gap-5  grid md:grid-cols-4 ">
       <div className="">
         <img className="w-full" src={food1} alt="" />
       </div>
@@ -14,15 +14,17 @@ const Food = () => {
       </div>
       <div className="col-span-2 relative">
         <img className="w-full" src={food3} alt="" />
-        <div className="absolute  pt-10 space-y-2 top-20 right-5 w-fit p-5">
-          <h2 className="font-semibold text-2xl font-poppins ">
+        <div className="absolute h-full pt-10 space-y-2 top-0 bg-black/20 lg:bg-transparent lg:top-20 right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-5 w-full lg:w-fit p-5">
+          <h2 className="font-semibold text-center lg:text-left text-2xl font-poppins ">
             Organic & Healthy
- <br /> Vegetables
+            <br /> Vegetables
           </h2>
           <p className="text-black/70">
             <span className="font-bold text-xl text-primary">25%</span> off
           </p>
-          <button className="btn bg-primary text-white">Shop Now</button>
+          <div className="flex lg:block justify-center ">
+            <button className="btn bg-primary text-white">Shop Now</button>
+          </div>
         </div>
       </div>
     </div>

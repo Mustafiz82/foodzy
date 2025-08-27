@@ -26,7 +26,22 @@ const Testimonial = () => {
 
       <div className="pt-10">
         <Swiper
-          slidesPerView={3}
+        slid
+          breakpoints={{
+
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 50,
+            },
+          }}
           spaceBetween={30}
           freeMode={true}
           loop
@@ -58,7 +73,9 @@ const Testimonial = () => {
                   </p>
 
                   <Rating
-                    emptySymbol={<IoStarOutline className="text-primary text-xl" />}
+                    emptySymbol={
+                      <IoStarOutline className="text-primary text-xl" />
+                    }
                     fullSymbol={<IoIosStar className="text-primary text-xl" />}
                     readonly
                     initialRating={4}

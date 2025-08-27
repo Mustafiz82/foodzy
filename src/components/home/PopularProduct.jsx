@@ -17,17 +17,22 @@ const PopularProduct = () => {
         }
       />
 
-      <div className="grid mt-10 grid-cols-4 gap-5">
-        <div className="space-y-2 text-center">
-          {category.map((item, idx) => (
-            <div className="p-3 flex justify-between bg-[#E9E9E9]" key={idx}>
-              <h2 className="text-xl font-semibold">{item}</h2>
-              <p className="text-black/70">
-                <FaArrowRight />
-              </p>
-            </div>
-          ))}
-          <div className="relative  h-[950px] w-full">
+      <div className="grid mt-10 grid-cols-1 lg:grid-cols-4 gap-y-5 lg:gap-5 ">
+        <div className="space-y-2  flex lg:flex-col flex-row gap-5 w-full text-center">
+          <div className="flex-1 space-y-3">
+            {category.map((item, idx) => (
+              <div
+                className="p-3 md:py-4 lg:py-3 flex w-full justify-between bg-[#E9E9E9]"
+                key={idx}
+              >
+                <h2 className="text-xl font-semibold">{item}</h2>
+                <p className="text-black/70">
+                  <FaArrowRight />
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="relative flex-1 h-[500px] md:h-[350px] lg:min-h-[950px] w-full">
             <img
               src={prouductBannerImage}
               className="w-full object-cover h-full"
@@ -41,7 +46,7 @@ const PopularProduct = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-3 col-span-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 col-span-3 gap-5">
           {ProductData.map((item, idx) => (
             <Product key={idx} item={item} />
           ))}

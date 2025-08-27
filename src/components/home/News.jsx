@@ -1,4 +1,4 @@
-import React from "react";
+
 import Title from "../Shared/Title";
 import image from "../../assets/home/news1.png";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,7 +17,20 @@ const News = () => {
       />
 
       <Swiper
-        slidesPerView={3}
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          }
+        }}
         spaceBetween={30}
         loop
         autoplay={{
@@ -30,7 +43,7 @@ const News = () => {
         modules={[Pagination , Autoplay ]}
         className="mySwiper mt-20"
       >
-        {Array.from({ length: 6 }).map((item, idx) =>   <SwiperSlide>
+        {Array.from({ length: 6 }).map(() =>   <SwiperSlide>
             <div className="card bg-base-100 shadow-sm">
               <div className="card-body">
                 <h2 className="card-title">Card Title</h2>

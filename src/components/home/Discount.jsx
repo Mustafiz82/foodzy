@@ -27,7 +27,7 @@ const Discount = () => {
   ];
 
   return (
-    <div className="container px-10 grid grid-cols-3 gap-5 p-20 mx-auto px-5">
+    <div className="container px-10 grid grid-cols-1 md:grid-cols-3 gap-5 p-20 mx-auto px-5">
       <div className="space-y-2 text-center">
         {data.map((item, idx) => (
           <div className="p-4 bg-[#E9E9E9]" key={idx}>
