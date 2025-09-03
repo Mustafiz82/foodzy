@@ -1,9 +1,9 @@
 
 import { Link } from "react-router";
 import Title from "../Shared/Title";
-import Product from "../Shared/Product";
 import { ProductData } from "../../Data/PopularProductData";
 import CartItem from "./CartItem";
+import ProductCard from "../Shared/ProductCard";
 const Cart = () => {
 
   return (
@@ -46,7 +46,7 @@ const Cart = () => {
 
      <div className="grid gap-5 mt-10 grid-cols-4">
        {ProductData.slice(0 , 4).map((item) => (
-        <Product item={item} />
+        <ProductCard item={item} />
       ))}
      </div>
     </div>

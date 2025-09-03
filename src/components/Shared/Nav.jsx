@@ -4,10 +4,10 @@ import { IoCartOutline, IoChevronDown } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { FiUser } from "react-icons/fi";
+import { Link } from "react-router";
 
 const Nav = () => {
-
-  const [isDropDownOpen , setIsDropDownOpen] = useState(false)
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
   const category = [
     "Fruits",
@@ -27,7 +27,7 @@ const Nav = () => {
     "Prepared Meals",
   ];
 
-  console.log(isDropDownOpen)
+  console.log(isDropDownOpen);
 
   return (
     <div className="container px-5 flex  items-center justify-between mx-auto">
@@ -46,13 +46,22 @@ const Nav = () => {
           placeholder="Search For Items"
         />
         <div className="relative">
-          <div onClick={ () => setIsDropDownOpen(prev => !prev)} className="flex p-4 border-y  border-[#64B496]  items-center gap-2">
+          <div
+            onClick={() => setIsDropDownOpen((prev) => !prev)}
+            className="flex p-4 border-y  border-[#64B496]  items-center gap-2"
+          >
             All Categories <IoChevronDown />
           </div>
-          <div className={`absolute duration-300 bg-white ${isDropDownOpen ? "h-[400px]" : "h-0"}  overflow-auto w-[200px] top-[60px] shadow-sm`}>
-            {
-              category.map((item , idx) => <div className="p-4 py-2 hover:bg-black/5 bg-white" key={idx}>{item}</div> )
-            } 
+          <div
+            className={`absolute duration-300 bg-white ${
+              isDropDownOpen ? "h-[400px]" : "h-0"
+            }  overflow-auto w-[200px] top-[60px] shadow-sm`}
+          >
+            {category.map((item, idx) => (
+              <div className="p-4 py-2 hover:bg-black/5 bg-white" key={idx}>
+                {item}
+              </div>
+            ))}
           </div>
         </div>
         <button className="btn rounded-l-none m-0 outline-0 hover:outline-0 outline-offset-0 bg-primary h-auto text-white">
@@ -62,15 +71,19 @@ const Nav = () => {
 
       <div>
         <ul className="flex  gap-5">
-          <li className="flex items-center gap-2">
-            <FiUser /> Account{" "}
-          </li>
+          <Link to={"/login"}>
+            <li className="flex items-center gap-2">
+              <FiUser /> Login{" "}
+            </li>
+          </Link>
           <li className="flex items-center gap-2">
             <CiHeart /> WishList{" "}
           </li>
+           <Link to={"/cart"}>
           <li className="flex items-center gap-2">
             <IoCartOutline /> Cart{" "}
           </li>
+           </Link>
         </ul>
       </div>
     </div>

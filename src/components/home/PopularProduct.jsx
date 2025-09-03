@@ -2,8 +2,8 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import prouductBannerImage from "../../assets/home/product-banner-img.png";
 import { ProductData } from "../../Data/PopularProductData";
-import Product from "../Shared/Product";
 import Title from "../Shared/Title";
+import ProductCard from "../Shared/ProductCard";
 
 const PopularProduct = () => {
   const category = ["All", "Snack", "Vegetable", "Fruit", "Bakery"];
@@ -48,7 +48,7 @@ const PopularProduct = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 col-span-3 gap-5">
           {ProductData.map((item, idx) => (
-            <Product key={idx} item={item} />
+            <ProductCard key={idx} item={item} />
           ))}
         </div>
       </div>

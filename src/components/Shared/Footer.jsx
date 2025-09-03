@@ -26,9 +26,9 @@ const Footer = () => {
         </nav>
         <form>
           <h6 className="footer-title">Newsletter</h6>
-          <fieldset className="w-80">
+          <fieldset className=" w-full md:w-80">
             <label>Enter your email address</label>
-            <div className="join">
+            <div className="join flex flex-col md:flex-row">
               <input
                 type="text"
                 placeholder="username@site.com"
