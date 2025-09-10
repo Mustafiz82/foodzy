@@ -19,7 +19,7 @@ const TopNav = () => {
             key={index}
             to={item?.link}
             className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "text-primary hover:scale-110 duration-300 font-semibold " : "hover:scale-110 duration-300"
+              isPending ? "pending" : isActive ? "text-primary cursor-pointer hover:scale-110 duration-300 font-semibold " : "hover:scale-110 duration-300"
             }
           >
             {item.name}
