@@ -1,11 +1,9 @@
-
 import { Link } from "react-router";
 import Title from "../Shared/Title";
 import { ProductData } from "../../Data/PopularProductData";
 import CartItem from "./CartItem";
 import ProductCard from "../Shared/ProductCard";
 const Cart = () => {
-
   return (
     <div className="container mx-auto p-5 ">
       <div className="overflow-x-auto">
@@ -22,9 +20,9 @@ const Cart = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-           {
-            ProductData.map((item , index) => <CartItem key={index} item={item} /> )
-           }
+            {ProductData.map((item, index) => (
+              <CartItem key={index} item={item} />
+            ))}
             {/* row 2 */}
           </tbody>
         </table>
@@ -34,7 +32,9 @@ const Cart = () => {
         <Link className="underline text-black/70" to={"#"}>
           Continue Shopping.
         </Link>
-        <button className="btn bg-primary text-white">Checkout</button>
+        <Link to={"/checkout"}>
+          <button className="btn bg-primary text-white">Checkout</button>
+        </Link>
       </div>
 
       <Title
@@ -44,11 +44,11 @@ const Cart = () => {
         }
       />
 
-     <div className="grid gap-5 mt-10 grid-cols-4">
-       {ProductData.slice(0 , 4).map((item) => (
-        <ProductCard item={item} />
-      ))}
-     </div>
+      <div className="grid gap-5 mt-10 grid-cols-4">
+        {ProductData.slice(0, 4).map((item) => (
+          <ProductCard item={item} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -12,6 +12,7 @@ const CartItem = ({item}) => {
       ? setQuantity((prev) => prev - 1)
       : setQuantity((prev) => prev);
   };
+  
   return (
     <tr className="">
       <th className="flex gap-2 items-center">

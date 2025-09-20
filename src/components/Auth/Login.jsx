@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PageName from "../Shared/PageName";
 import logo from "../../assets/Layout/logo.png";
 import { Link } from "react-router";
 import { IoIosEye, IoMdEyeOff } from "react-icons/io";
+import { AuthContext } from "../../context/Authcontext";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
   const [showPasword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
-
+  const { loginUser , signInWithGithub , signInWithGoogle } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -20,7 +23,23 @@ const Login = () => {
 
     setError("");
 
+    loginUser(email, password)
+      .then((user) => console.log(user))
+      .catch((err) => console.log(err));
+
     console.log({ email, password });
+  };
+
+  const handleGoogleSignin = () => {
+    signInWithGoogle()
+      .then((res) => console.log(res.user))
+      .catch((err) => console.log(err));
+  };
+
+  const handleGithubSignin = () => {
+    signInWithGithub()
+      .then((res) => console.log(res.user))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -49,7 +68,6 @@ const Login = () => {
             <input
               type={showPasword ? "text" : "password"}
               name="password"
-
               required
               className="input focus:outline-0 focus:border-primary w-full"
               placeholder="Enter your Password"
@@ -84,6 +102,22 @@ const Login = () => {
             <Link to={"/signup"}>Signup ?</Link>
           </div>
         </form>
+
+        <div className="divider">OR</div>
+
+        <button
+          onClick={handleGoogleSignin}
+          className="flex cursor-pointer active:scale-95 duration-300 items-center gap-2 w-full justify-center py-2 bg-base-200"
+        >
+          <FcGoogle /> Continue With Google
+        </button>
+
+        <button
+          onClick={handleGithubSignin}
+          className="flex mt-2 cursor-pointer active:scale-95 duration-300 items-center gap-2 w-full justify-center py-2 bg-base-200"
+        >
+          <FaGithub /> Continue With Google
+        </button>
       </div>
     </div>
   );

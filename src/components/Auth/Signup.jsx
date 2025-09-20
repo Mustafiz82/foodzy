@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PageName from "../Shared/PageName";
 import logo from "../../assets/Layout/logo.png";
 import { Link } from "react-router";
 import { IoIosEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
+import { AuthContext } from "../../context/Authcontext";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 const Signup = () => {
   const [error, setError] = useState(null);
   const [showPasword, setShowPassword] = useState(false);
   const [confirmPasword, setConfirmPassword] = useState(false);
+
+  const { createUser, signInWithGoogle , signInWithGithub} = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +43,24 @@ const Signup = () => {
 
     setError("");
 
+    createUser(email, password)
+      .then((res) => console.log(res.user))
+      .catch((err) => console.log(err));
+
     console.log({ name, email, password, confirmPassword });
+  };
+
+  const handleGoogleSignin = () => {
+    signInWithGoogle()
+      .then((res) => console.log(res.user))
+      .catch((err) => console.log(err));
+  };
+
+
+  const handleGithubSignin = () => {
+    signInWithGithub()
+      .then((res) => console.log(res.user))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -119,7 +141,7 @@ const Signup = () => {
 
           <p className="my-2 text-red-500 ">{error}</p>
 
-          <div className="flex my-4 mt-5 items-center justify-between">
+          <div className="flex  my-4 mt-5 items-center justify-between">
             <button type="submit" className="btn btn-primary bg-primary">
               {" "}
               Signup
@@ -128,6 +150,16 @@ const Signup = () => {
             <Link to={"/login"}>Login ?</Link>
           </div>
         </form>
+
+        <div className="divider">OR</div>
+
+        <button onClick={handleGoogleSignin} className="flex cursor-pointer active:scale-95 duration-300 items-center gap-2 w-full justify-center py-2 bg-base-200">
+          <FcGoogle /> Continue With Google
+        </button>
+
+        <button onClick={handleGithubSignin} className="flex mt-2 cursor-pointer active:scale-95 duration-300 items-center gap-2 w-full justify-center py-2 bg-base-200">
+          <FaGithub /> Continue With Google
+        </button>
       </div>
     </div>
   );

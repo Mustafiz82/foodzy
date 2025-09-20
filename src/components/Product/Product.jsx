@@ -158,7 +158,7 @@ const Product = () => {
           <div className="flex max-w-[80%]  mt-5 gap-5 flex-wrap">
             {tags.map((item, index) => {
               return (
-                <p className="px-4 py-2 bg-white text-black/70 ">{item}</p>
+                <p key={index} className="px-4 py-2 bg-white text-black/70 ">{item}</p>
               );
             })}
           </div>

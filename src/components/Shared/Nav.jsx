@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../assets/Layout/logo.png";
 import { IoCartOutline, IoChevronDown } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { FiUser } from "react-icons/fi";
 import { Link } from "react-router";
+import { AuthContext } from "../../context/Authcontext";
+import { MdOutlineAccountCircle } from "react-icons/md";
 
 const Nav = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
@@ -28,6 +30,10 @@ const Nav = () => {
   ];
 
   console.log(isDropDownOpen);
+
+  const { user } = useContext(AuthContext);
+
+  console.log(user);
 
   return (
     <div className="container px-5 flex  items-center justify-between mx-auto">
@@ -71,19 +77,28 @@ const Nav = () => {
 
       <div>
         <ul className="flex  gap-5">
-          <Link to={"/login"}>
-            <li className="flex items-center gap-2">
-              <FiUser /> Login{" "}
-            </li>
-          </Link>
+          {user ? (
+            <Link to={"/user"}>
+              <li className="flex items-center gap-2">
+                <MdOutlineAccountCircle  /> Account{" "}
+              </li>
+            </Link>
+          ) : (
+            <Link to={"/login"}>
+              <li className="flex items-center gap-2">
+                <FiUser /> Login{" "}
+              </li>
+            </Link>
+          )}
+
           <li className="flex items-center gap-2">
             <CiHeart /> WishList{" "}
           </li>
-           <Link to={"/cart"}>
-          <li className="flex items-center gap-2">
-            <IoCartOutline /> Cart{" "}
-          </li>
-           </Link>
+          <Link to={"/cart"}>
+            <li className="flex items-center gap-2">
+              <IoCartOutline /> Cart{" "}
+            </li>
+          </Link>
         </ul>
       </div>
     </div>
